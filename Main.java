@@ -134,34 +134,34 @@ public class Main {
         Case4◦ . Дан номер месяца — целое число в диапазоне 1–12 (1 — январь, 2 —
        февраль и т. д.). Определить количество дней в этом месяце для невисокосного года.*/
 
-        /*Scanner in = new Scanner(System.in);
-        System.out.print("Inter the number:");
-        int num = in.nextInt();
-
-        switch (num) {
-            case 1:
-            case 2:
-            case 12:
-                System.out.println("Зима ");
-                break;
-            case 3:
-            case 4:
-            case 5:
-                System.out.println("Весна ");
-                break;
-            case 6:
-            case 7:
-            case 8:
-                System.out.println("Лето ");
-                break;
-            case 9:
-            case 10:
-            case 11:
-                System.out.println("Осень ");
-                break;
-            default:
-                System.out.println("ошибка ");
-        }*/
+//        Scanner in = new Scanner(System.in);
+//        System.out.print("Inter the number:");
+//        int num = in.nextInt();
+//
+//        switch (num) {
+//            case 1:
+//            case 2:
+//            case 12:
+//                System.out.println("Зима ");
+//                break;
+//            case 3:
+//            case 4:
+//            case 5:
+//                System.out.println("Весна ");
+//                break;
+//            case 6:
+//            case 7:
+//            case 8:
+//                System.out.println("Лето ");
+//                break;
+//            case 9:
+//            case 10:
+//            case 11:
+//                System.out.println("Осень ");
+//                break;
+//            default:
+//                System.out.println("ошибка ");
+//        }
 //        Case15. Мастям игральных карт присвоены порядковые номера: 1 — пики,
 //        2 — трефы, 3 — бубны, 4 — червы. Достоинству карт, старших десятки,
 //        присвоены номера: 11 — валет, 12 — дама, 13 — король, 14 — туз. Даны
@@ -287,13 +287,188 @@ public class Main {
 //        }
 //        For5◦. Дано вещественное число — цена 1 кг конфет. Вывести стоимость 0.1,
 //                0.2, . . . , 1 кг конфет
-        Scanner in = new Scanner(System.in);
-        System.out.print("Inter the number A:");
-        double price = in.nextDouble();
 
-        for (double weight = 0.1; weight < 1.01; weight = weight + 0.1) {
-            System.out.println("Цена " + Math.round(weight*10)/10.0 + " кг. конфет равна " + Math.round(weight * price*100)/100.0 + " рублей");
+//        Scanner in = new Scanner(System.in);
+//        System.out.print("Inter the number A:");
+//        double price = in.nextDouble();
+//
+//        for (double weight = 0.1; weight < 1.01; weight = weight + 0.1) {
+//            System.out.println("Цена " + Math.round(weight*10)/10.0 + " кг. конфет равна " + Math.round(weight * price*100)/100.0 + " рублей");
+//        }
+//
+//        For6. Дано вещественное число — цена 1 кг конфет.
+//        Вывести стоимость 1.2, 1.4, . . . , 2 кг конфет
+//
+//        Scanner in = new Scanner(System.in);
+//        System.out.print("Введите стоимость конфер руб/кг:");
+//        double price = in.nextDouble();
+//
+//        for (double weight = 1.2; weight < 2.01; weight = weight + 0.2) {
+//            System.out.println("Цена " + Math.round(weight*10)/10.0 + " кг. конфет равна " + Math.round(weight * price*100)/100.0 + " рублей");
+//        }
+//      For7. Даны два целых числа A и B (A < B). Найти сумму всех целых чисел
+//          от A до B включительно
+
+//        Scanner in = new Scanner(System.in);
+//        System.out.print("Введите число A:");
+//        int a = in.nextInt();
+//        System.out.print("Введите число B:");
+//        int b = in.nextInt();
+//        int sum = 0;
+//
+//        for (int i = a; i <= b; i = i + 1) {
+//            sum = sum + i;
+//        }
+//        System.out.println("Сумма всех чисел между " + a + " и " + b + " равна " +sum);
+
+
+//        For8. Даны два целых числа A и B (A < B). Найти произведение всех целых
+//        чисел от A до B включительно
+
+//        Scanner in = new Scanner(System.in);
+//        System.out.print("Введите число A:");
+//        int a = in.nextInt();
+//        System.out.print("Введите число B:");
+//        int b = in.nextInt();
+//        int mult = 1;
+//
+//        for (int i = a; i <= b; i = i + 1) {
+////            mult = mult*i;
+//        }
+//        System.out.println("Произведение всех чисел между " + a + " и " + b + " равна " +mult);
+//
+//        For9. Даны два целых числа A и B (A < B). Найти сумму квадратов всех целых
+//        чисел от A до B включительно.
+
+//        Scanner in = new Scanner(System.in);
+//        System.out.print("Введите число A:");
+//        int a = in.nextInt();
+//        System.out.print("Введите число B:");
+//        int b = in.nextInt();
+//        int sum = 0;
+//
+//        for (int i = a; i <= b; i = i + 1) {
+//            sum = sum + i * i;
+//        }
+//        System.out.println("Сумма квадратов всех чисел между " + a + " и " + b + " равна " + sum);
+//
+//        For10. Дано целое число N (> 0).
+//        Найти сумму 1 + 1/2 + 1/3 + . . . + 1/N  (вещественное число).
+
+//        Scanner in = new Scanner(System.in);
+//        System.out.print("Введите число N:");
+//        int n = in.nextInt();
+//        double sum = 0;
+//
+//        for (int i = 1; i <= n; i = i + 1) {
+//            sum = sum + 1.0 / i;
+//        }
+//        System.out.println("Сумма  чисел   равна " + sum);
+
+//        For11. Дано целое число N (> 0). Найти сумму
+//        N^2 + (N + 1)^2 + (N + 2)^2 + . . . + (2·N)^2
+//        (N+0)^2 + (N + 1)^2 + (N + 2)^2 + . . . + (N+N)^2
+//        Math.pow(n+i,2) -> double
+//
+//        Scanner in = new Scanner(System.in);
+//        System.out.print("Введите число N:");
+//        int n = in.nextInt();
+//        int sum = 0;
+//
+//        for (int i = 0; i <= n; i = i + 1) {
+//            sum = sum + (n + i) * (n + i);
+//        }
+//        System.out.println("Сумма  чисел   равна " + sum);
+//
+//        Series1◦. Даны десять вещественных чисел. Найти их сумму.
+
+//        Scanner in = new Scanner(System.in);
+//        double sum = 0;
+//
+//        for (int i = 1; i <= 10; i++) {
+//            System.out.print("Введите число N" + i + " :");
+//            double n = in.nextDouble();
+//            sum = sum + n;
+//        }
+//        System.out.println("Сумма  чисел   равна " + sum);
+//
+//        Series2. Даны десять вещественных чисел. Найти их произведение.
+
+//        Scanner in = new Scanner(System.in);
+//        double mult = 1;
+//
+//        for (int i = 1; i <= 5; i++) {
+//            System.out.print("Введите число N" + i + " :");
+//            double n = in.nextDouble();
+//            mult = mult * n;
+//        }
+//        System.out.println("Произведение  чисел   равна " + mult);
+//
+//        Series3. Даны десять вещественных чисел. Найти их среднее арифметическое
+//        Scanner in = new Scanner(System.in);
+//        double sum = 0;
+//        int i;
+//        for (i = 1; i <= 5; i++) {
+//            System.out.print("Введите число N" + i + " :");
+//            double n = in.nextDouble();
+//            sum = sum + n;
+//        }
+//        System.out.println("Сумма  чисел   равна " + sum / i);
+//
+//        Series4. Дано целое число N и набор из N вещественных чисел. Вывести
+//        сумму и произведение чисел из данного набора.
+
+//        Scanner in = new Scanner(System.in);
+//        System.out.print("Введите число N:");
+//        int n = in.nextInt();
+//        double sum = 0;
+//        double mult = 1;
+//
+//        for (int i = 1; i <= n; i++) {
+//            System.out.print("Введите число N" + i + " :");
+//            double m = in.nextDouble();
+//            sum = sum + m;
+//            mult = mult * m;
+//        }
+//        System.out.println("Сумма  чисел   равна " + sum);
+//        System.out.println("Произведение чисел равна " + mult);
+//
+//        Series5. Дано целое число N и набор из N положительных вещественных
+//        чисел. Вывести в том же порядке целые части всех чисел из данного
+//        набора (как вещественные числа с нулевой дробной частью), а также
+//        сумму всех целых частей.
+
+//        Scanner in = new Scanner(System.in);
+//        System.out.print("Введите число N:");
+//        int n = in.nextInt();
+//        int sum = 0;
+//
+//        for (int i = 1; i <= n; i++) {
+//            System.out.print("Введите число N" + i + " :");
+//            double m = in.nextDouble();
+//            System.out.println("Целая часть числа N : " + (int) m);
+//            sum = sum + (int) m;
+//        }
+//        System.out.println("Сумма  чисел   равна " + sum);
+//
+//        Series6. Дано целое число N и набор из N положительных вещественных
+//        чисел. Вывести в том же порядке дробные части всех чисел из данного набора (как вещественные числа с нулевой целой частью), а также
+//        произведение всех дробных частей.
+
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите число N:");
+        int n = in.nextInt();
+        double mult = 0;
+        double res = 0;
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print("Введите число N" + i + " :");
+            double m = in.nextDouble();
+            res = m - (int) m;
+            System.out.println("Целая часть числа N : " + res);
+            mult = mult * +(m - (int) m);
         }
+        System.out.println("Произведение  чисел   равна " + mult);
 
 
     }
