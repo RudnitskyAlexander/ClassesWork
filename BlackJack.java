@@ -1,5 +1,3 @@
-package com.company;
-
 import java.io.SequenceInputStream;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -76,7 +74,17 @@ public class BlackJack {
         int card = fdeck.get(fdeck.size() - 1);
         fdeck.remove(fdeck.size() - 1);
         fdealer.add(card);
+        System.out.println("У дилера " + calcScoreDeeler(fdealer) + " очков.");
     }
+
+    static int calcScoreDeeler(ArrayList<Integer> fdealer) {
+        int sumDealer = 0;
+        for (int i = 0; i < fdealer.size(); i++) {
+            sumDealer += fdealer.get(i);
+        }
+        return sumDealer;
+    }
+
 
     public static void main(String[] args) {
 
@@ -105,6 +113,10 @@ public class BlackJack {
         }
         //  3. меньше 21 очка, игрок сказал "хватит"
         //  == действия дилера
+        do {
+            dealerTakeOneCard(deck, dealer);
+        }
+        while (calcScoreDeeler(dealer) <= 17);
         // 1. дилер набрал 21 (у игрока заведомо <21), игра заканчивается, дилер выиграл.
         if (calcScore(dealer) == 21) {
             System.out.println("Дилер Выиграл.");
