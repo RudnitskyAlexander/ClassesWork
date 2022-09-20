@@ -25,9 +25,9 @@ public class Fraction {
         denom = fDenom;
     }
 
-    public void print() {
-        System.out.println(nom/this.nod + "/" + denom);
-    }
+//    public void print() {
+//        System.out.println(nom/this.nod + "/" + denom);
+//    }
 
 //    public void setNom(int nom) {
 //        this.nom = nom;

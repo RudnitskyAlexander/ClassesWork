@@ -5,10 +5,10 @@ public class Warrior {
     protected int damage;
     protected int hp;
 
-    public Warrior(){
-        name=' ';
-        damage=0;
-        hp=0;
+    public Warrior() {
+        name = " ";
+        damage = 0;
+        hp = 0;
     }
 
     public Warrior(String name, int damage, int hp) {
@@ -45,8 +45,12 @@ public class Warrior {
         return hp > 0;
     }
 
-    public void takeHit(Warrior war2){
-        this.setHp(this.getHp()-war2.getDamage());
+    public void takeHit(Warrior war2) {
+        this.setHp(this.getHp() - war2.getDamage());
     }
 
+    @Override
+    public String toString() {
+        return name + " has " +hp+" health ";
+    }
 }
