@@ -1,11 +1,14 @@
 package Lesson_20_OOP_BlacJack;
 
+import sun.awt.util.IdentityArrayList;
 import sun.security.krb5.internal.crypto.Des;
 
-public class Lesson_20_OOP_BlackJack {
-    public static void main(String[] args) {
+import java.util.Scanner;
 
-        Deck deck = new Deck();
-        System.out.println(deck);
+public class Lesson_20_OOP_BlackJack {
+    public static void main(String[] args) throws InterruptedException {
+        Game game= new Game();
+        game.play();
+
     }
 }

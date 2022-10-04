@@ -32,7 +32,11 @@ public abstract class Hand {
         return score;
     }
 
-    public abstract void play();
+    public abstract void play(Deck deck) throws InterruptedException;
+
+    public void takeOneCard(Deck deck){
+        hand.add(deck.sendCard());
+    }
 
 
 }
