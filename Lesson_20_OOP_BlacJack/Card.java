@@ -1,4 +1,4 @@
-package Lesson_20_OOP_BlacJack;
+package Lessons.Lesson_20_OOP_BlacJack;
 
 public class Card {
     private char suit;

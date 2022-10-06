@@ -1,7 +1,4 @@
-package Lesson_20_OOP_BlacJack;
-
-import sun.awt.util.IdentityArrayList;
-import sun.security.krb5.internal.crypto.Des;
+package Lessons.Lesson_20_OOP_BlacJack;
 
 import java.util.Scanner;
 

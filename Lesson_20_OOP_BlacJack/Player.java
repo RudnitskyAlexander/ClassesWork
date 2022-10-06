@@ -1,4 +1,4 @@
-package Lesson_20_OOP_BlacJack;
+package Lessons.Lesson_20_OOP_BlacJack;
 
 import java.util.Scanner;
 
@@ -9,7 +9,7 @@ public class Player extends Hand {
     public void play(Deck deck) {
         Scanner in = new Scanner(System.in);
         char answer = 'y';
-        // РІР·СЏС‚СЊ 2 РєР°СЂС‚С‹
+        // взять 2 карты
         takeOneCard(deck);
         takeOneCard(deck);
 

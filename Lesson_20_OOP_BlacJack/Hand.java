@@ -1,4 +1,4 @@
-package Lesson_20_OOP_BlacJack;
+package Lessons.Lesson_20_OOP_BlacJack;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ public abstract class Hand {
     }
 
     public int calcScore() {
-        // TODO СЃРґРµР»Р°С‚СЊ С‡С‚Рѕ Р±С‹ С‚СѓР· РґР°РІР°Р» 1 РёР»Рё 11 РѕС‡РєРѕРІ
+        // TODO сделать что бы туз давал 1 или 11 очков
         int score = 0;
         for (Card card : hand) {
             score += card.getRank();

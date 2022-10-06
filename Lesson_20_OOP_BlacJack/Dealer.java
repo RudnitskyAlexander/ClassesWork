@@ -1,4 +1,4 @@
-package Lesson_20_OOP_BlacJack;
+package Lessons.Lesson_20_OOP_BlacJack;
 
 import java.util.TreeMap;
 

@@ -1,6 +1,5 @@
-package Lesson_20_OOP_BlacJack;
+package Lessons.Lesson_20_OOP_BlacJack;
 
-import Lesson_19_OOP.cars.Vehicle.Car;
 
 import javax.swing.*;
 import java.util.ArrayList;
