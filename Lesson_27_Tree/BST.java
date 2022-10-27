@@ -126,11 +126,18 @@ public class BST<T extends Comparable<T>> implements BinaryTree<T> {
         inOrder(root.right);
     }
 
-    void  preorder(Node<T> root){
+    void preorder(Node<T> root) {
         if (root == null) return;
         System.out.print(root.data + " ");
         inOrder(root.left);
         inOrder(root.right);
+    }
+
+    void orderRight(Node<T> root) {
+        if (root == null) return;
+        inOrder(root.right);
+        inOrder(root.left);
+        System.out.print(root.data + " ");
     }
 
 

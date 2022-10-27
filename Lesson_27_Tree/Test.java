@@ -19,5 +19,7 @@ public class Test {
         t1.inOrder();
         System.out.println();
         t1.preorder(t1.getRoot());
+        System.out.println();
+        t1.orderRight(t1.getRoot());
     }
 }
