@@ -5,11 +5,16 @@ public interface BinaryTree<T> {
 
     void add(T data);
 
-    Node<T> findMin(Node<T> root);
+    T findMin();
+
+  //  Node<T> findMin(Node<T> root);
 
     T findMax();
 
     void delete(T data);
 
     boolean contains(T data);
+
+    void inOrder();
+
 }
