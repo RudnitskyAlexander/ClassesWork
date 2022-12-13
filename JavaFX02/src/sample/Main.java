@@ -13,9 +13,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
+
+import java.util.Random;
 
 
 public class Main extends Application {
@@ -24,6 +27,22 @@ public class Main extends Application {
     public static final double BALL_RADIUS = 15;
     public static final int PADDLE_WITH = 25;
     public static final int PADDLE_HEIGHT = 100;
+    private static Random random;
+
+    private boolean gameStarted;
+    // для мяча
+    private int ballSpeedX = 1;
+    private int ballSpeedY = 1;
+    private double leftPlayerYPos = WINDOW_HEIGHT / 2;
+    private double rightPlayerYPos = WINDOW_HEIGHT / 2;
+
+    private double ballXPos = WINDOW_WIDTH / 2;
+    private double ballYPos = WINDOW_HEIGHT / 2;
+    private int leftScore = 0;
+    private int rightScore = 0;
+
+    private int leftPlayerXPos = 10;
+    private double rightPlayerXpos = WINDOW_WIDTH - PADDLE_WITH - 10;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -65,6 +84,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
+
     }
 
     private void run(GraphicsContext gc) {
@@ -75,6 +95,64 @@ public class Main extends Application {
         gc.fillRect(WINDOW_WIDTH - 2, 0, 4, WINDOW_HEIGHT);
         gc.moveTo(WINDOW_WIDTH / 2, 0);
         gc.lineTo(WINDOW_WIDTH / 2, WINDOW_HEIGHT);
+        if (gameStarted) {
+            // движение мяча
+            ballXPos += ballSpeedX;
+            ballYPos += ballSpeedY;
+            // проверяем выход мяча за границу поля
+            if (ballXPos < leftPlayerXPos) {
+                rightScore++;
+                gameStarted = false;
+            }
+            if (ballYPos > rightPlayerXpos) {
+                leftScore++;
+                gameStarted = false;
+            }
+
+            if (ballYPos < 0 || ballYPos > WINDOW_HEIGHT) {
+                ballSpeedY = -ballSpeedY;
+            }
+// отбивание мяча от ракеток
+            // от правой ракетки
+            if (ballXPos + BALL_RADIUS > rightPlayerXpos && ballYPos >= rightPlayerYPos && ballYPos <= rightPlayerYPos + PADDLE_HEIGHT) {
+                if (ballSpeedX > 0) ballSpeedX++;
+                else ballSpeedX--;
+                if (ballSpeedY > 0) ballSpeedY++;
+                else ballSpeedY--;
+                ballSpeedX = -ballSpeedX;
+                ballSpeedY = -ballSpeedY;
+            }
+
+            if (ballXPos + leftPlayerXPos+BALL_RADIUS > rightPlayerXpos && ballYPos >= rightPlayerYPos && ballYPos <= rightPlayerYPos + PADDLE_HEIGHT) {
+                if (ballSpeedX > 0) ballSpeedX++;
+                else ballSpeedX--;
+                if (ballSpeedY > 0) ballSpeedY++;
+                else ballSpeedY--;
+                ballSpeedX = -ballSpeedX;
+                ballSpeedY = -ballSpeedY;
+            }
+
+            // типа ИИ  для правого игрока
+            if (ballXPos < 3 * WINDOW_WIDTH / 4) {
+                rightPlayerXpos = ballYPos - PADDLE_HEIGHT / 2;
+            } else {
+                rightPlayerYPos = ballYPos > rightPlayerYPos + PADDLE_HEIGHT / 2 ? rightPlayerYPos + 1 : rightPlayerYPos - 1;
+            }
+            gc.fillOval(ballXPos, ballYPos, BALL_RADIUS, BALL_RADIUS);
+        } else {// игра не началась
+            gc.setStroke(Color.YELLOW);
+            gc.setTextAlign(TextAlignment.CENTER);
+            gc.strokeText("Click to Start", WINDOW_WIDTH / 2,
+                    WINDOW_HEIGHT / 2);
+            ballXPos = WINDOW_WIDTH / 2;
+            ballYPos = WINDOW_HEIGHT / 2;
+            if (random.nextInt(2) == 0) {
+                ballSpeedX = 1;
+            } else {
+                ballSpeedY = -1;
+            }
+        }
+        gc.fillText(leftScore + "t\t\t\t\t\t\t\t\t" + rightScore, )
 
     }
 
