@@ -50,51 +50,51 @@ public class Main extends Application {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         Timeline tl = new Timeline(new KeyFrame(Duration.millis(17), e -> run(gc)));
         tl.setCycleCount(Timeline.INDEFINITE);
+        canvas.setOnMouseClicked(e-> gameStarted=true);
+        canvas.setOnMouseMoved(e-> leftPlayerYPos=e.getY());
         primaryStage.setScene(new Scene(new StackPane(canvas)));
         primaryStage.show();
         tl.play();
 
-        gc.moveTo(WINDOW_WIDTH / 2, 0);
-        gc.lineTo(WINDOW_WIDTH / 2, WINDOW_HEIGHT);
+//        gc.moveTo(WINDOW_WIDTH / 2, 0);
+//        gc.lineTo(WINDOW_WIDTH / 2, WINDOW_HEIGHT);
 
 
-        Line line = new Line(WINDOW_WIDTH / 2, 0, WINDOW_WIDTH / 2, WINDOW_HEIGHT);
-        line.setStroke(Color.BLACK);
-        line.setStrokeWidth(5);
-
-        Circle ball = new Circle(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, BALL_RADIUS);
-        ball.setFill(Color.WHITE);
-
-        Rectangle leftPaddle = new Rectangle(PADDLE_WITH, PADDLE_HEIGHT);
-        leftPaddle.setX(PADDLE_WITH * 1.5);
-        leftPaddle.setY(PADDLE_HEIGHT / 2);
-        leftPaddle.setFill(Color.WHITE);
-
-        Rectangle rightPaddle = new Rectangle(PADDLE_WITH, PADDLE_HEIGHT);
-        rightPaddle.setX(WINDOW_WIDTH - 2 * PADDLE_WITH);
-        rightPaddle.setY(WINDOW_HEIGHT - 1.5 * PADDLE_HEIGHT);
-        rightPaddle.setFill(Color.BLACK);
-
-        Group group = new Group(line, ball, leftPaddle, rightPaddle);
-
-
-        Scene scene = new Scene(group, WINDOW_WIDTH, WINDOW_HEIGHT);
-        scene.setFill(Color.BROWN);
-        primaryStage.setTitle("Sample Application");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
-
-    }
+//        Line line = new Line(WINDOW_WIDTH / 2, 0, WINDOW_WIDTH / 2, WINDOW_HEIGHT);
+//        line.setStroke(Color.BLACK);
+//        line.setStrokeWidth(5);
+//
+//        Circle ball = new Circle(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, BALL_RADIUS);
+//        ball.setFill(Color.WHITE);
+//
+//        Rectangle leftPaddle = new Rectangle(PADDLE_WITH, PADDLE_HEIGHT);
+//        leftPaddle.setX(PADDLE_WITH * 1.5);
+//        leftPaddle.setY(PADDLE_HEIGHT / 2);
+//        leftPaddle.setFill(Color.WHITE);
+//
+//        Rectangle rightPaddle = new Rectangle(PADDLE_WITH, PADDLE_HEIGHT);
+//        rightPaddle.setX(WINDOW_WIDTH - 2 * PADDLE_WITH);
+//        rightPaddle.setY(WINDOW_HEIGHT - 1.5 * PADDLE_HEIGHT);
+//        rightPaddle.setFill(Color.BLACK);
+//
+//        Group group = new Group(line, ball, leftPaddle, rightPaddle);
+//
+//
+//        Scene scene = new Scene(group, WINDOW_WIDTH, WINDOW_HEIGHT);
+//        scene.setFill(Color.BROWN);
+//        primaryStage.setTitle("Sample Application");
+//        primaryStage.setScene(scene);
+//        primaryStage.show();
+   }
 
     private void run(GraphicsContext gc) {
         gc.setFill(Color.BLACK);
         gc.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
         gc.setFill(Color.WHITE);
 
-        gc.fillRect(WINDOW_WIDTH - 2, 0, 4, WINDOW_HEIGHT);
-        gc.moveTo(WINDOW_WIDTH / 2, 0);
-        gc.lineTo(WINDOW_WIDTH / 2, WINDOW_HEIGHT);
+        gc.fillRect(WINDOW_WIDTH / 2 - 2, 0, 4, WINDOW_HEIGHT);
+//        gc.moveTo(WINDOW_WIDTH / 2, 0);
+//        gc.lineTo(WINDOW_WIDTH / 2, WINDOW_HEIGHT);
         if (gameStarted) {
             // движение мяча
             ballXPos += ballSpeedX;
@@ -114,16 +114,16 @@ public class Main extends Application {
             }
 // отбивание мяча от ракеток
             // от правой ракетки
-            if (ballXPos + BALL_RADIUS > rightPlayerXpos && ballYPos >= rightPlayerYPos && ballYPos <= rightPlayerYPos + PADDLE_HEIGHT) {
+            if ((ballXPos + BALL_RADIUS > rightPlayerXpos) && ballYPos >= rightPlayerYPos && ballYPos <= rightPlayerYPos + PADDLE_HEIGHT) {
                 if (ballSpeedX > 0) ballSpeedX++;
                 else ballSpeedX--;
                 if (ballSpeedY > 0) ballSpeedY++;
                 else ballSpeedY--;
                 ballSpeedX = -ballSpeedX;
-                ballSpeedY = -ballSpeedY;
+                // ballSpeedY = -ballSpeedY;
             }
 
-            if (ballXPos + leftPlayerXPos+BALL_RADIUS > rightPlayerXpos && ballYPos >= rightPlayerYPos && ballYPos <= rightPlayerYPos + PADDLE_HEIGHT) {
+            if (ballXPos + leftPlayerXPos + BALL_RADIUS > rightPlayerXpos && ballYPos >= rightPlayerYPos && ballYPos <= rightPlayerYPos + PADDLE_HEIGHT) {
                 if (ballSpeedX > 0) ballSpeedX++;
                 else ballSpeedX--;
                 if (ballSpeedY > 0) ballSpeedY++;
@@ -142,8 +142,7 @@ public class Main extends Application {
         } else {// игра не началась
             gc.setStroke(Color.YELLOW);
             gc.setTextAlign(TextAlignment.CENTER);
-            gc.strokeText("Click to Start", WINDOW_WIDTH / 2,
-                    WINDOW_HEIGHT / 2);
+            gc.strokeText("Click to Start", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
             ballXPos = WINDOW_WIDTH / 2;
             ballYPos = WINDOW_HEIGHT / 2;
             if (random.nextInt(2) == 0) {
@@ -151,9 +150,16 @@ public class Main extends Application {
             } else {
                 ballSpeedY = -1;
             }
+            if (random.nextInt(2) == 0) {
+                ballSpeedY = 1;
+            } else {
+                ballSpeedY = -1;
+            }
         }
-        gc.fillText(leftScore + "t\t\t\t\t\t\t\t\t" + rightScore, )
-
+        // рисуем ракетки
+        gc.fillText(leftScore + "t\t\t\t\t\t\t\t\t" + rightScore, WINDOW_WIDTH / 2, 100);
+        gc.fillRect(rightPlayerXpos, rightPlayerYPos, PADDLE_WITH, PADDLE_HEIGHT);
+        gc.fillRect(leftPlayerXPos, leftPlayerYPos, PADDLE_WITH, PADDLE_HEIGHT);
     }
 
     public static void main(String[] args) {
