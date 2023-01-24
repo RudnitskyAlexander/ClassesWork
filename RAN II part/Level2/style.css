@@ -1,0 +1,43 @@
+p{
+    color:red;
+    font-size: 30px;
+}
+
+tr {
+    width: 200px;
+    height: 200px;}
+
+td {
+    width: 200px;
+    height: 200px;}
+
+    h1{font-size: 55px;
+        text-align: center;
+    }
+
+    h2{
+        text-align: center;
+        font-size: 40px;
+        font-weight: normal;
+        width: 300px;
+    font-style: italic;
+
+    }
+    table{
+        width: 500px;
+    }
+
+    th{
+        text-align: left;
+    }
+td{
+    text-align: center;
+}
+
+p{
+    width: 300px;
+text-align:justify;
+}
+
+
+
